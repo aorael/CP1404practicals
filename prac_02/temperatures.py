@@ -23,9 +23,11 @@ def main():
     print("Thank you.")
 
 def convert_to_fahrenheit(celsius):
+    """Converting the temperatures from celsius to fahrenheit"""
     return  5 / 9 * (celsius - 32)
 
 def convert_to_celsius(fahrenheit):
+    """Converting the temperatures from fahrenheit to celsius"""
     return fahrenheit * 9.0 / 5 + 32
 
 main()
