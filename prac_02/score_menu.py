@@ -11,7 +11,7 @@ def main():
     choice = input("Enter choice: ").upper()
     while choice != "Q":
         if choice == "G":
-            score = validate_number()
+            score = validate_score()
         elif choice == "P":
             score = get_valid_score(score)
             print_result(score)
@@ -21,19 +21,19 @@ def main():
             print(stars)
         print(MENU)
         choice = input("Enter choice: ").upper()
-    print("Finished.")
+    print("Farewell.")
 
-def validate_number():
-    number = int(input("Enter a score: "))
-    while number < MINIMUM_SCORE or number > MAXIMUM_SCORE:
-        print("Invalid number")
-        number = int(input("Enter a score: "))
-    return number
+def validate_score():
+    score = int(input("Enter a score: "))
+    while score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
+        print("Invalid score")
+        score = int(input("Enter a score: "))
+    return score
 
 def get_valid_score(score):
     if score is None:
         print("Invalid score")
-        return validate_number()
+        return validate_score()
     return score
 
 def print_result(score):
