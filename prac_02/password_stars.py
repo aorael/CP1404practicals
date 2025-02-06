@@ -5,13 +5,14 @@ def main():
     print_asterisks(password)
 
 def print_asterisks(password):
-    print(len(password) * "*")
+    print(password * "*")
 
 def get_password():
-    password = input("Enter password: ")
-    while len(password) <= PASSWORD_LENGTH:
+    password = len(input("Enter password: "))
+    while password <= PASSWORD_LENGTH:
         print("Invalid password")
-        password = input("Enter password: ")
+        password = len(input("Enter password: "))
     return password
 
 main()
+
