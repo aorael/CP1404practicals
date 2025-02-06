@@ -22,6 +22,7 @@ def main():
     print("Farewell.")
 
 def validate_score():
+    """Validating the score"""
     score = int(input("Enter a score: "))
     while score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         print("Invalid score")
@@ -29,6 +30,7 @@ def validate_score():
     return score
 
 def print_result(score):
+    """Printing the result based off the score"""
     if score >= EXCELLENT_THRESHOLD:
         print(f"{score} is Excellent")
     elif score >= PASSABLE_THRESHOLD:
