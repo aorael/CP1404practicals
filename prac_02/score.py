@@ -17,6 +17,7 @@ def main():
     print(f"The random score is {random_score}")
 
 def get_message(score):
+    """Returning the message based off the score"""
     if score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         return "Invalid score"
     elif score >= EXCELLENT_THRESHOLD:
