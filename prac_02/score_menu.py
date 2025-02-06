@@ -6,17 +6,15 @@ MAXIMUM_SCORE = 100
 MENU = "(G)et a valid score\n(P)rint result\n(S)how stars\n(Q)uit"
 
 def main():
+    score = validate_score()
     print(MENU)
-    score = None
     choice = input("Enter choice: ").upper()
     while choice != "Q":
         if choice == "G":
             score = validate_score()
         elif choice == "P":
-            score = get_valid_score(score)
             print_result(score)
         elif choice =="S":
-            score = get_valid_score(score)
             stars = "*" * score
             print(stars)
         print(MENU)
@@ -28,12 +26,6 @@ def validate_score():
     while score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         print("Invalid score")
         score = int(input("Enter a score: "))
-    return score
-
-def get_valid_score(score):
-    if score is None:
-        print("Invalid score")
-        return validate_score()
     return score
 
 def print_result(score):
