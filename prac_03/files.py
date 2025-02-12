@@ -9,7 +9,7 @@ def main1():
     out_file = open("name.txt", "w")
     print(name, file=out_file)
     out_file.close()
-# main1()
+main1()
 
 """
 Question 2
@@ -22,7 +22,7 @@ def main2():
     in_file = open("name.txt", "r")
     print(f"Hi {in_file.readline().strip()}!")
     in_file.close()
-# main2()
+main2()
 
 """
 Question 3
@@ -44,8 +44,7 @@ def main3():
             number_in_file = int(list[i].strip())
             number += number_in_file
         print(number)
-
-# main3()
+main3()
 
 """
 Question 4
@@ -59,5 +58,4 @@ def main4():
             number = int(line.strip())
             number += number
         print(number)
-
-# main4()
+main4()
