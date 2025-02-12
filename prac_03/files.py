@@ -39,12 +39,13 @@ def main3():
     with open("numbers.txt", "r") as in_file:
         list = in_file.readlines()
         number = 0
-        for i in range(0, len(list)-1):
-            number = int(list[i].strip())
-            print(number , ".")
+
+        for i in range(2):
+            number_in_file = int(list[i].strip())
+            number += number_in_file
         print(number)
 
-main3()
+# main3()
 
 """
 Question 4
