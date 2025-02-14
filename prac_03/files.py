@@ -53,9 +53,10 @@ This should work for a file with any number of numbers.
 Use with instead of open and close for this question.
 """
 def main4():
-    with open("numbers.txt", "r") as out_file:
-        for line in out_file:
+    with open("numbers.txt", "r") as in_file:
+        total = 0
+        for line in in_file:
             number = int(line.strip())
-            number += number
-        print(number)
+            total += number
+        print(total)
 main4()
