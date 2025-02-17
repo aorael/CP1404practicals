@@ -5,7 +5,6 @@ Data file -> lists program
 
 FILENAME = "subject_data.txt"
 
-
 def main():
     data = load_data()
     print(data)
@@ -18,7 +17,6 @@ def display_subject(data):
         number_of_student = data[i][2]
 
         print(f"{subject} is taught by {name} and has {number_of_student} students")
-
 
 def load_data():
     """Read data from file formatted like: subject,lecturer,number of students."""
