@@ -36,6 +36,5 @@ def load_data():
     data = ([line.strip().split(",") for line in input_file][:2])
     input_file.close()
     return data
-    # input_file.close()
 
 main()
