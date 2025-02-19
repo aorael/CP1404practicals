@@ -11,12 +11,14 @@ def main():
     display_subject(data)
 
 def display_subject(data):
+    name_width = max((len(pair[1]) for pair in data))
+    number_width = max((len(pair[2]) for pair in data))
     for i in range(len(data)):
         subject = data[i][0]
         name = data[i][1]
         number_of_student = data[i][2]
+        print(f"{subject} is taught by {name:{name_width}} and has {number_of_student:>{number_width}} students")
 
-        print(f"{subject} is taught by {name} and has {number_of_student} students")
 
 def load_data():
     """Read data from file formatted like: subject,lecturer,number of students."""
@@ -31,7 +33,9 @@ def load_data():
         # print(parts)  # See if that worked
         # print("----------")
         # print(line)
-    return ([line.strip().split(",") for line in input_file][:2])
+    data = ([line.strip().split(",") for line in input_file][:2])
     input_file.close()
+    return data
+    # input_file.close()
 
 main()
