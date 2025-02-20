@@ -12,6 +12,7 @@ def main():
     display_income(incomes, total_month)
 
 def get_income(incomes, total_month):
+    """Getting income from user"""
     incomes = []
     for month in range(1, total_month + 1):
         income = float(input(f"Enter income for month {str(month)}: "))
