@@ -6,19 +6,20 @@ Data file -> lists program
 FILENAME = "subject_data.txt"
 
 def main():
+    """Loading and displaying the data"""
     data = load_data()
-    print(data)
+    print(data) # for checking
     display_subject(data)
 
 def display_subject(data):
-    name_width = max((len(pair[1]) for pair in data))
-    number_width = max((len(pair[2]) for pair in data))
+    """Displaying subject, name, and number of student in a sentence from a list"""
+    name_width = max((len(trio[1]) for trio in data))
+    number_width = max((len(trio[2]) for trio in data))
     for i in range(len(data)):
         subject = data[i][0]
         name = data[i][1]
         number_of_student = data[i][2]
         print(f"{subject} is taught by {name:{name_width}} and has {number_of_student:>{number_width}} students")
-
 
 def load_data():
     """Read data from file formatted like: subject,lecturer,number of students."""
