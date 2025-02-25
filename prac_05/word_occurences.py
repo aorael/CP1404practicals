@@ -23,6 +23,7 @@ def main():
     # print(sorted_words) #SORTED LISTS
 
 def display_data(number_of_word_width, sorted_words, word_width):
+    """Displaying all the data"""
     for word, number_of_word in sorted_words:
         print(f"{word:{word_width}} : {number_of_word:{number_of_word_width}}")
 
