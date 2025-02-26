@@ -3,7 +3,6 @@ Word Occurrences
 Estimate: 35 minutes
 Actual:   42 minutes
 """
-
 from operator import itemgetter
 word_to_length = {}
 
