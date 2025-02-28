@@ -25,6 +25,7 @@ def main():
 
     # print(champions) #champion names
     # print(name_to_number) #dictionary = champions : number of wins
+    print()
     display_countries()
 
 
