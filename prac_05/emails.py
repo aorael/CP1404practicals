@@ -7,8 +7,8 @@ Actual:   107 minutes
 key_to_value = {}
 
 def main():
+    """Displaying the name of the user and the email account"""
     email = input("Email: ")
-
     while email != "":
         name = get_name(email)
         name_confirmation = input(f"Is your name {name} (Y/n)? ").upper()
@@ -21,12 +21,12 @@ def main():
         email = input("Email: ")
 
     # print(key_to_value) #check dictionary
-
+    print()
     for email, name in key_to_value.items():
         print(f"{name} ({email})")
 
-
 def get_name(email):
+    """Converting name from the email user input"""
     username = email.split("@")[0]
     name = " ".join(username.split(".")).title()
     return name
