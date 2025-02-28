@@ -21,11 +21,6 @@ def main():
     # print(word_to_length) #UNSORTED DICTIONARY
     # print(sorted_words) #SORTED LISTS
 
-def display_data(number_of_word_width, sorted_words, word_width):
-    """Displaying all the data"""
-    for word, number_of_word in sorted_words:
-        print(f"{word:{word_width}} : {number_of_word:{number_of_word_width}}")
-
 def get_sorted_word_to_length(words):
     """Converting a list to a dictionary with sorted words as the key and number of words as the value"""
     for word in words:
@@ -33,4 +28,8 @@ def get_sorted_word_to_length(words):
     sorted_words = sorted(word_to_length.items(), key=itemgetter(0))
     return sorted_words
 
+def display_data(number_of_word_width, sorted_words, word_width):
+    """Displaying all the data"""
+    for word, number_of_word in sorted_words:
+        print(f"{word:{word_width}} : {number_of_word:{number_of_word_width}}")
 main()
