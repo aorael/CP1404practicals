@@ -4,7 +4,7 @@ Estimate: 50 minutes
 Actual:   107 minutes
 """
 
-key_to_value = {}
+email_to_name = {}
 
 def main():
     """Displaying the name of the user and the email account"""
@@ -14,15 +14,15 @@ def main():
         name_confirmation = input(f"Is your name {name} (Y/n)? ").upper()
 
         if name_confirmation == "Y" or name_confirmation == "":
-            key_to_value[email] = name
+            email_to_name[email] = name
         else:
             actual_name = input("Name: ")
-            key_to_value[email] = actual_name
+            email_to_name[email] = actual_name
         email = input("Email: ")
 
     # print(key_to_value) #check dictionary
     print()
-    for email, name in key_to_value.items():
+    for email, name in email_to_name.items():
         print(f"{name} ({email})")
 
 def get_name(email):
