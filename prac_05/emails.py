@@ -31,5 +31,4 @@ def get_name(email):
     name = " ".join(username.split(".")).title()
     return name
 
-
 main()
