@@ -49,5 +49,4 @@ def display_countries():
     print(f"These {number_of_country} countries have won Wimbledon:")
     print(", ".join(sorted(countries)))
 
-
 main()
