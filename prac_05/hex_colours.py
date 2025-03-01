@@ -1,5 +1,5 @@
 
-NAME_TO_CODE = {"Amber": "ffbf00", "Amethyst": "9966cc" ,"Apricot": "fbceb1", "Aqua": "00ffff", "Asparagus": "87a96b", "Black": "000000", "Blond": "faf0be", "Bone": "e3dac9", "Brown": "a52a2a", "Burgundy": "800020"}
+NAME_TO_CODE = {"Magenta": "ff00ff", "White": "ffffff" ,"Black": "000000", "Brown": "a52a2a", "Chocolate": "d2691e", "Pink": "fc0cb", "Gray": "bebebe", "Sage": "bcb88a", "Purple": "a020f0", "Burgundy": "800020"}
 
 # print(len(NAME_TO_CODE.keys())) # number of colors
 
