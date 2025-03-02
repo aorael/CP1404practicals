@@ -25,7 +25,7 @@ print("Finished.")
 
 def correction():
     is_valid = False
-    while not is_not_zero:
+    while not is_valid:
         try:
             numerator = int(input("Enter the numerator: "))
             denominator = int(input("Enter the denominator: "))
