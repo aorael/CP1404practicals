@@ -4,7 +4,6 @@ Estimate: 30 minutes
 Actual:   30  minutes
 """
 
-
 # Starting time = 14:30
 # Finishing time = 15.00
 
