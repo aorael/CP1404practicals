@@ -16,10 +16,10 @@ def main():
 
     limo = Car(100) # Q1
     limo.add_fuel(20) # Q2
-    print(f"Amount of fuel in the car is {limo.fuel}") # Q3
+    print(f"Amount of fuel in the limo car is {limo.fuel}") # Q3
 
     limo.drive(115)
-    print(f"Amount of fuel in the car is {limo.fuel} when it is used to drive for 115 km") # Q4
+    print(f"Amount of fuel in the limo car is {limo.fuel} when it is used to drive for 115 km") # Q4
 
     my_car = Car(my_car.fuel, "My car") # Q6
     limo = Car(limo.fuel, "Limo") # Q6
