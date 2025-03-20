@@ -25,7 +25,7 @@ def main():
             file_name = input("Enter file name to save projects: ")
             with open(file_name, "w") as out_file:
                 for project in projects:
-                    print(project, file=out_file)
+                    print(f"{project.name} {project.start_date} {project.priority} {project.cost} {project.completion_percentage}", file=out_file)
             print("Projects saved.")
 
         elif choice == "D":
