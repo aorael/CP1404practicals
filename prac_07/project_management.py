@@ -1,94 +1,123 @@
-
 from project import Project
 import datetime
 
 menu = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
+menu_options = ["L","S","D","F","A","U","Q"]
 default_file = "projects.txt"
 
 def main():
     print("Welcome to Pythonic Project Management")
     projects = load_projects(default_file)
+    number_of_projects = len(projects)
 
     print(menu)
     choice = input(">>> ").upper()
 
     while choice != "Q":
-        if choice == "L":
-            file_name = input("Enter file name to load projects: ")
-            try:
-                load_projects(file_name)
-                print("Projects loaded.")
-            except FileNotFoundError:
-                print(f"File {file_name} is not found.")
-
-        elif choice == "S":
-            file_name = input("Enter file name to save projects: ")
-            with open(file_name, "w") as out_file:
-                for project in projects:
-                    print(f"{project.name} {project.start_date} {project.priority} {project.cost} {project.completion_percentage}", file=out_file)
-            print("Projects saved.")
-
-        elif choice == "D":
-            incomplete_projects = [project for project in projects if int(project.completion_percentage) < 100]
-            completed_projects = [project for project in projects if int(project.completion_percentage) == 100]
-
-            incomplete_projects.sort()
-            completed_projects.sort()
-
-            print("Incomplete projects:")
-            for project in incomplete_projects:
-                print(" ", project)
-            print("Completed projects:")
-            for project in completed_projects:
-                print(" ", project)
-
-        elif choice == "F":  # sort by date
-            date_string = get_valid_date("Show projects that start after date (dd/mm/yy): ")
-            date_threshold = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
-            # print(date_string) # FOR CHECKING
-            # print(date_threshold) # FOR CHECKING
-
-            filtered_projects = [project for project in projects if project.start_date >= date_threshold]
-            filtered_projects.sort(key=lambda x: x.start_date)
-
-            for project in filtered_projects:
-                print(project)
-
-        elif choice == "A":
-            print("Let's add a new project")
-            project_name = get_valid_string("Name: ")
-            start_date = get_valid_date("Start date (dd/mm/yy): ")
-            priority = get_valid_priority("Priority: ")
-            cost = float(get_valid_number("Cost estimate: $"))
-            completion_percentage = get_valid_number("Percent complete: ")
-
-            projects.append(Project(project_name, start_date, priority, cost, completion_percentage))
-
-        elif choice == "U":
-            for project_index,project in enumerate(projects):
-                print(f"{project_index} {project}")
-
-            project_index = int(input("Project choice: "))
-            print(projects[project_index])
-
-            new_completion_percentage = get_valid_number("New percentage: ")
-            if new_completion_percentage:
-                projects[project_index].completion_percentage = int(new_completion_percentage)
-
-            new_priority = input("New priority: ")
-            if new_priority:
-                projects[project_index].priority = int(new_priority)
+        if choice not in menu_options:
+            print("Invalid choice.")
+        else:
+            if choice == "L":
+                file_name = input("Enter file name to load projects: ")
+                try:
+                    load_projects(file_name)
+                    print("Projects loaded.")
+                except FileNotFoundError:
+                    print(f"File {file_name} is not found.")
+            elif choice == "S":
+                file_name = input("Enter file name to save projects: ")
+                save_projects(file_name, projects)
+                print("Projects saved.")
+            elif choice == "D":
+                display_projects(projects)
+            elif choice == "F":  # sort by date
+                filter_projects(projects)
+            elif choice == "A":
+                print("Let's add a new project")
+                add_projects(projects)
+            elif choice == "U":
+                update_projects(number_of_projects, projects)
 
         print(menu)
         choice = input(">>> ").upper()
 
     save_file = input("Would you like to save projects.txt? (Y/n) ").upper()
     if save_file == "Y":
-        with open(default_file, "w") as out_file:
-            for project in projects:
-                print(project, file=out_file)
-
+        save_projects(default_file, projects)
     print("Thank you for using custom_built project management software.")
+
+
+def update_projects(number_of_projects, projects):
+    """update the projects by changing the priority or/and completion percentage"""
+    for project_index, project in enumerate(projects):
+        print(f"{project_index} {project}")
+    project_index = get_valid_number("Project choice: ")
+    while project_index < 0 or project_index > number_of_projects:
+        print("Index is out of range.")
+        project_index = get_valid_number("Project choice: ")
+    print(projects[project_index])
+    new_completion_percentage = get_valid_number("New percentage: ")
+    new_completion_percentage = get_valid_percentage(new_completion_percentage)
+    if new_completion_percentage:
+        projects[project_index].completion_percentage = int(new_completion_percentage)
+    new_priority = input("New priority: ")
+    if new_priority:
+        projects[project_index].priority = int(new_priority)
+
+
+def add_projects(projects):
+    """add projects to the file"""
+    project_name = get_valid_string("Name: ")
+    start_date = get_valid_date("Start date (dd/mm/yy): ")
+    priority = get_valid_priority("Priority: ")
+    cost = float(get_valid_number("Cost estimate: $"))
+    while cost < 0:
+        print("Invalid cost.")
+        cost = float(get_valid_number("Cost estimate: $"))
+    completion_percentage = get_valid_number("Percent complete: ")
+    completion_percentage = get_valid_percentage(completion_percentage)
+    projects.append(Project(project_name, start_date, priority, cost, completion_percentage))
+
+def filter_projects(projects):
+    """filter projects starting from the date user input"""
+    date_string = get_valid_date("Show projects that start after date (dd/mm/yy): ")
+    date_threshold = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    # print(date_string) # FOR CHECKING
+    # print(date_threshold) # FOR CHECKING
+    filtered_projects = [project for project in projects if project.start_date >= date_threshold]
+    filtered_projects.sort(key=lambda x: x.start_date)
+    for project in filtered_projects:
+        print(project)
+
+
+def display_projects(projects):
+    """display all the projects"""
+    incomplete_projects = [project for project in projects if int(project.completion_percentage) < 100]
+    completed_projects = [project for project in projects if int(project.completion_percentage) == 100]
+    incomplete_projects.sort()
+    completed_projects.sort()
+    print("Incomplete projects:")
+    for project in incomplete_projects:
+        print(" ", project)
+    print("Completed projects:")
+    for project in completed_projects:
+        print(" ", project)
+
+
+def save_projects(file_name, projects):
+    """save projects into the file user input"""
+    with open(file_name, "w") as out_file:
+        for project in projects:
+            print(f"{project.name} {project.start_date} {project.priority} {project.cost} {project.completion_percentage}", file=out_file)
+
+
+def get_valid_percentage(user_completion_percentage):
+    """Check user input for percentage until the input is valid"""
+    while user_completion_percentage < 0 or user_completion_percentage > 100:
+        print("Percentage needs to be in the range of 0 - 100.")
+        user_completion_percentage = get_valid_number("New percentage: ")
+    return user_completion_percentage
+
 
 def get_valid_priority(prompt):
     """Check user input for priority until the input is valid"""
@@ -96,15 +125,17 @@ def get_valid_priority(prompt):
         user_input = int(input(prompt))
         return user_input
     except ValueError:
-        print("Invalid integer for priority")
+        print("Invalid integer for priority.")
+
 
 def get_valid_date(prompt):
     """Check user input for date until the input is valid"""
     user_input = input(prompt)
     while len(user_input) < 8:
-        print("Invalid date")
+        print("Invalid date.")
         user_input = input(prompt)
     return user_input
+
 
 def get_valid_number(prompt):
     """Check user input for number until the input is valid"""
@@ -113,13 +144,14 @@ def get_valid_number(prompt):
             user_input = int(input(prompt))
             return user_input
         except ValueError:
-            print("Invalid integer")
+            print("Invalid integer.")
+
 
 def get_valid_string(prompt):
     """Check user input for string until the input is valid"""
     user_input = input(prompt)
     while user_input == "":
-        print("Can not be empty")
+        print("Can not be empty.")
         user_input = input(prompt)
     return user_input
 
@@ -142,7 +174,7 @@ def load_projects(file_name):
             projects.append(project)
 
         project_counter = len(projects)
-        print(f"Loaded {project_counter} projects from {projects}")
+        print(f"Loaded {project_counter} projects from {file_name}")
     return projects
 
 
