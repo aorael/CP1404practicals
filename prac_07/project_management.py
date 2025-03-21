@@ -6,6 +6,7 @@ menu_options = ["L","S","D","F","A","U","Q"]
 default_file = "projects.txt"
 
 def main():
+    """a program where user can load, save, display, filter, add, update projects"""
     print("Welcome to Pythonic Project Management")
     projects = load_projects(default_file)
     number_of_projects = len(projects)
