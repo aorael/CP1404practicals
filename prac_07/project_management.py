@@ -91,6 +91,7 @@ def main():
     print("Thank you for using custom_built project management software.")
 
 def get_valid_priority(prompt):
+    """Check user input for priority until the input is valid"""
     try:
         user_input = int(input(prompt))
         return user_input
@@ -98,6 +99,7 @@ def get_valid_priority(prompt):
         print("Invalid integer for priority")
 
 def get_valid_date(prompt):
+    """Check user input for date until the input is valid"""
     user_input = input(prompt)
     while len(user_input) < 8:
         print("Invalid date")
@@ -105,6 +107,7 @@ def get_valid_date(prompt):
     return user_input
 
 def get_valid_number(prompt):
+    """Check user input for number until the input is valid"""
     while True:
         try:
             user_input = int(input(prompt))
@@ -113,6 +116,7 @@ def get_valid_number(prompt):
             print("Invalid integer")
 
 def get_valid_string(prompt):
+    """Check user input for string until the input is valid"""
     user_input = input(prompt)
     while user_input == "":
         print("Can not be empty")
@@ -121,6 +125,7 @@ def get_valid_string(prompt):
 
 
 def load_projects(file_name):
+    """Load projects according to the file name"""
     with open(file_name, "r") as in_file:
         next(in_file)
         projects = []
