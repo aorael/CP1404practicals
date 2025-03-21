@@ -1,4 +1,6 @@
 class Guitar:
+    VINTAGE_AGE = 50
+
     def __init__(self, name, year, cost):
         """stores instance variables"""
         self.name = name
@@ -15,7 +17,7 @@ class Guitar:
 
     def is_vintage(self):
         """returns boolean value when the age of the guitar is over 50 years old"""
-        return self.get_age() >= 50
+        return self.get_age() >= Guitar.VINTAGE_AGE
 
     def __lt__(self, other):
         """compare two values if the first value is less than the other value"""
