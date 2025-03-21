@@ -4,6 +4,9 @@ import datetime
 menu = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
 menu_options = ["L","S","D","F","A","U","Q"]
 default_file = "projects.txt"
+VALUE_MINIMUM_THRESHOLD = 0
+VALUE_MAXIMUM_THRESHOLD = 100
+DATE_LENGTH_THRESHOLD = 8
 
 def main():
     """a program where user can load, save, display, filter, add, update projects"""
@@ -53,7 +56,7 @@ def update_projects(number_of_projects, projects):
     for project_index, project in enumerate(projects):
         print(f"{project_index} {project}")
     project_index = get_valid_number("Project choice: ")
-    while project_index < 0 or project_index > number_of_projects:
+    while project_index < VALUE_MINIMUM_THRESHOLD or project_index > number_of_projects:
         print("Index is out of range.")
         project_index = get_valid_number("Project choice: ")
     print(projects[project_index])
@@ -72,7 +75,7 @@ def add_projects(projects):
     start_date = get_valid_date("Start date (dd/mm/yy): ")
     priority = get_valid_priority("Priority: ")
     cost = float(get_valid_number("Cost estimate: $"))
-    while cost < 0:
+    while cost < VALUE_MINIMUM_THRESHOLD:
         print("Invalid cost.")
         cost = float(get_valid_number("Cost estimate: $"))
     completion_percentage = get_valid_number("Percent complete: ")
@@ -114,7 +117,7 @@ def save_projects(file_name, projects):
 
 def get_valid_percentage(user_completion_percentage):
     """Check user input for percentage until the input is valid"""
-    while user_completion_percentage < 0 or user_completion_percentage > 100:
+    while user_completion_percentage < VALUE_MINIMUM_THRESHOLD or user_completion_percentage > VALUE_MAXIMUM_THRESHOLD:
         print("Percentage needs to be in the range of 0 - 100.")
         user_completion_percentage = get_valid_number("New percentage: ")
     return user_completion_percentage
@@ -132,7 +135,7 @@ def get_valid_priority(prompt):
 def get_valid_date(prompt):
     """Check user input for date until the input is valid"""
     user_input = input(prompt)
-    while len(user_input) < 8:
+    while len(user_input) < DATE_LENGTH_THRESHOLD:
         print("Invalid date.")
         user_input = input(prompt)
     return user_input
