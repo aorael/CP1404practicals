@@ -11,12 +11,12 @@ class BoxLayoutDemo(App):
 
     def handle_greet(self):
         """handles the greeting output"""
-        print('test greet')
+        print('test greet') # print in terminal
         self.root.ids.output_label.text = f"Hello {self.root.ids.input_name.text}"
 
     def handle_clear(self):
         """handles clearing the input box"""
-        print("test clear")
+        print("test clear") # print in terminal
         self.root.ids.input_name.text = ""
 
 
