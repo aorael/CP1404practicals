@@ -1,5 +1,5 @@
-
 class Band:
+    """Band class"""
     def __init__(self, name=""):
         """intializes instance variables of Band"""
         self.name = name
