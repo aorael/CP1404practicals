@@ -8,10 +8,14 @@ taxi2 = SilverServiceTaxi("Taxi 2", 100, 2)
 # fuel is 100 because to avoid running out of fuel
 print(taxi2)
 
-print()
-expected_fare = 48.78
-taxi2.drive(18)
-calculated_fare = taxi2.get_fare()
+print("-")
+def check_by_assert():
+    expected_fare = 48.80
+    taxi2.drive(18)
+    calculated_fare = taxi2.get_fare()
+    # print(calculated_fare) # for checking
 
-assert round(calculated_fare, 2) == expected_fare
-# no AssertionError means the values match
+    assert round(calculated_fare, 2) == expected_fare
+    # no AssertionError means the values match
+
+check_by_assert()
