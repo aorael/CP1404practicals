@@ -16,10 +16,10 @@ class Band:
 
     def add(self, musician):
         """add musicians with instruments"""
-        self.musicians.append(musician) # state the musician, add n store instruments to musician, add musicians if there is any new
+        self.musicians.append(musician) # state the musician, add & store instruments to musician, add musicians if there is any new musicians
 
     def play(self):
-        results = [] # if the result of the condition is to print it'll return None at the end, storing it in a list would make use of returning it at the end of the method
+        results = [] # if the result of the condition is to print, it'll return None at the end, storing it in a list would make use of returning it at the end of the method
         for musician in self.musicians:
             if not musician.instruments:
                 results.append(f"{musician.name} needs an instrument!")
