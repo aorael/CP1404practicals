@@ -10,6 +10,6 @@ print(car2)
 print(car3)
 
 print()
-print(car1.drive(70))
+print(car1.drive(25))
 print(car2.drive(50))
 print(car3.drive(150))

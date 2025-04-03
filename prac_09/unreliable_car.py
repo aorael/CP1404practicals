@@ -2,7 +2,7 @@ from random import randint
 from car import Car
 
 class UnreliableCar(Car):
-    def __init__(self, name, fuel, reliability:float):
+    def __init__(self, name, fuel, reliability=0.0):
         """initializes the instance variables"""
         super().__init__(name, fuel)
         self.reliability = reliability
@@ -13,5 +13,8 @@ class UnreliableCar(Car):
     def drive(self, distance):
         """drive the car with the given distance from user"""
         random_number = randint(0,100)
+        # print(f"random num {random_number}") # for checking
         if random_number < self.reliability:
-            return super().drive(distance)
+            return f"distance driven: {super().drive(distance)}"
+        else:
+            return "not driving"
