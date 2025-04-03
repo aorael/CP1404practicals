@@ -2,12 +2,14 @@ from random import randint
 from car import Car
 
 class UnreliableCar(Car):
+    """Class Unreliable Car"""
     def __init__(self, name, fuel, reliability=0.0):
         """initializes the instance variables"""
         super().__init__(name, fuel)
         self.reliability = reliability
 
     def __str__(self):
+        """return a string with the instancce variables that'll be displayed"""
         return f"{super().__str__()}, reliability = {self.reliability}"
 
     def drive(self, distance):
