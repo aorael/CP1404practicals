@@ -4,7 +4,7 @@ from taxi import Taxi
 my_taxi = Taxi("Prius 1", 100)
 
 # Q2 Drive the taxi 40 km
-print(my_taxi.drive(40))
+my_taxi.drive(40)
 # print(my_taxi.fuel) # checking the fuel left
 
 # Q3 Print the taxi's details and the current fare
