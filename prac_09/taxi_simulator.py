@@ -61,7 +61,7 @@ def drive_taxi(current_taxi, total_bill):
         distance_to_drive = int(input("Drive how far? "))
         current_taxi.drive(distance_to_drive)
         fare = current_taxi.get_fare()  # store fare to avoid recalculating if taxi doesnt get switched multiple times
-        print(f"Your {current_taxi.name} trip cost you ${fare}")
+        print(f"Your {current_taxi.name} trip cost you ${fare:.2f}")
         total_bill += fare
     return total_bill
 
