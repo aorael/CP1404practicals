@@ -1,8 +1,10 @@
 from taxi import Taxi
 
 class SilverServiceTaxi(Taxi):
+    """Class Silver Service Taxi"""
     flagfall =4.50
-    def __init__(self, name, fuel, fanciness: float):
+
+    def __init__(self, name, fuel, fanciness=0.0):
         """initializes instance variables"""
         super().__init__(name, fuel)
         self.fanciness = fanciness
