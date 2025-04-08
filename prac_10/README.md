@@ -61,4 +61,4 @@ If some practicals require me to submit more than 3 files, I would reduce the qu
 
 ### What did you do really well for practicals in this subject?
 
-Early submission and reviewing code
+Early submission and code reviews
