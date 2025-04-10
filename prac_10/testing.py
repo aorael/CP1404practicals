@@ -36,10 +36,13 @@ def run_tests():
     # Hint: "-".join(["yo", "yo"] -> "yo-yo"
 
     # assert test with custom message,
+    assert repeat_string("Hi", 5) == "Hi Hi Hi Hi Hi"
+
     # used to see if Car's init method sets the odometer correctly
     # this should pass (no output)
     car = Car()
     assert car._odometer == 0, "Car does not set odometer correctly"
+    assert car.fuel == 0, "Car does not set fuel correctly"
 
     # TODO: 2. write assert statements to show if Car sets the fuel correctly
     # Note that Car's __init__ function sets the fuel in one of two ways:
