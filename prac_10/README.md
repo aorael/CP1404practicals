@@ -10,12 +10,13 @@ Regarding the **estimates** that you did for practical tasks...
 
 ### How was your estimate accuracy usually?
 
-I'd say 70-80% accurate, some of my codes took a really long time to finish because 
+I'd say 65-70% accurate, some of my codes took a really long time to finish because 
 I still need to digest the function on each programs and I tried to fully understand it. 
 
 ### How did your estimate accuracy improve or change during the course of the subject?
 
-It hasn't improved much because it takes me some time to learn things
+It hasn't improved much because it takes me some time to learn things.
+However, for some projects it took quicker times to finish it.
 
 ### What did you learn from doing these estimates?
 
@@ -30,7 +31,9 @@ also maintain the code as precise and simple as it can.
 
 ### What have you learned from doing code reviews of other people?
 
-I learnt that there are other methods to do certain things, either its simpler or more complex.
+I learnt that there are other methods to do certain things, either its simpler or more complex. 
+Other things I learned from reviewing codes are writing docstrings under the functions/methods,
+declaring constants as well as refactoring.
 
 
 Provide proper Markdown links (not bare URLs) to two (2) PRs that show you doing good code reviews for any of the past
@@ -43,7 +46,8 @@ For each one, write a short explanation of what was good about your review.
 
 ### Explanation
 
-I wrote detailed yet simple comments on every code that I think needed revisions specifically. 
+I wrote detailed yet simple comments on every code that I think needed revisions specifically. For instance,
+I wrote comments to remind him to refactor some codes and to write docstrings under the method/functions.
 
 ### Good Code Review 2
 
@@ -51,7 +55,7 @@ I wrote detailed yet simple comments on every code that I think needed revisions
 
 ### Explanation
 
-I wrote some alternative methods that can be done in the program.
+I wrote some alternative methods that can be done in the program like repeated tasks.
 
 ## Practicals
 
@@ -61,4 +65,4 @@ If some practicals require me to submit more than 3 files, I would reduce the qu
 
 ### What did you do really well for practicals in this subject?
 
-Early submission and code reviews
+I think I'm still good at submitting my practicals before the deadlines and reviewing codes. 
