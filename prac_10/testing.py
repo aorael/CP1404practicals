@@ -6,7 +6,6 @@ Testing code using assert and doctest
 import doctest
 from car import Car
 
-
 def repeat_string(s="", n=0):
     """Repeat string s, n times, with spaces in between."""
     # return s * n
@@ -23,7 +22,6 @@ def is_long_word(word, length=5):
     True
     """
     return len(word) >= length # Q4/TO DO 4
-
 
 def run_tests():
     """Run the tests on the functions."""
